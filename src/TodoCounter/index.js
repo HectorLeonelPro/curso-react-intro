@@ -7,7 +7,7 @@ function TodoCounter() {
 	return (
 
 		<div>
-			{(totalTodos === completedTodos && totalTodos > 1) && 
+			{(totalTodos === completedTodos && totalTodos >= 1) && 
 				<h1 className='TodoCounter'>
 					Has completado todos los TODO's 🥳
 				</h1>
