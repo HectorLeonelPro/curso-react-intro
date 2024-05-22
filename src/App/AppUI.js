@@ -8,15 +8,16 @@ import {EmptyTodos} from '../EmptyTodos';
 import {CreateTodoButton} from '../CreateTodoButton'
 import React from 'react';
 import { TodoContext } from '../TodoContext';
-
-
+import { TodoForm } from '../TodoForm';
+import { Modal } from '../Modal';
 
 function AppUI () {
+	const {loading, error, searchedTodos, completeTodo, deleteTodo, openModal} = React.useContext(TodoContext)
+
     return (
 		<>
 			<TodoCounter />
 			<TodoSearch />
-			<TodoContext.Consumer>
                 <TodoList>
                     {loading && (<>
                     <TodosLoading />
@@ -35,10 +36,14 @@ function AppUI () {
                             onDelete={() => deleteTodo(todo.text)}
                         />
                     ))}
-                </TodoList>
-            </TodoContext.Consumer>
+                </TodoList> 
 			<CreateTodoButton />
 
+            {openModal && (
+                <Modal>
+                    <TodoForm />
+                </Modal>
+            )}
 		</>
 	);
 }
