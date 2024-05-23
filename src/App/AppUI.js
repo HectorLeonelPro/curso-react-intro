@@ -12,11 +12,11 @@ import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
 
 function AppUI () {
-	const {loading, error, searchedTodos, completeTodo, deleteTodo, openModal} = React.useContext(TodoContext)
+	const {loading, error, searchedTodos, completeTodo, deleteTodo, openModal, completedTodos, totalTodos} = React.useContext(TodoContext)
 
     return (
 		<>
-			<TodoCounter />
+			<TodoCounter totalTodos={totalTodos} completeTodos={completedTodos} />
 			<TodoSearch />
                 <TodoList>
                     {loading && (<>
