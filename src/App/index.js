@@ -17,7 +17,7 @@ function App(){
 
     return (
 		<>
-            <TodoHeader>
+            <TodoHeader loading={loading}>
                 <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
                 <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
             </TodoHeader>
