@@ -11,9 +11,10 @@ import {CreateTodoButton} from '../CreateTodoButton'
 import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
 import { TodoHeader } from '../TodoHeader';
+import { ChangeAlert } from '../ChangeAlert';
 
 function App(){
-	const {loading, error, searchedTodos, completeTodo, deleteTodo, openModal, completedTodos, totalTodos, searchValue, setSearchValue, setOpenModal, addTodo} = useTodos()
+	const {loading, error, searchedTodos, completeTodo, deleteTodo, openModal, completedTodos, totalTodos, searchValue, setSearchValue, setOpenModal, addTodo, sincronizeTodos} = useTodos()
 
     return (
 		<>
@@ -59,8 +60,14 @@ function App(){
                     <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
                 </Modal>
             )}
+
+            <ChangeAlert sincronize={sincronizeTodos} />
+
 		</>
 	);
 }
 
 export default App;
+
+
+
